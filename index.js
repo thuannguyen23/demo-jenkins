@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
 
@@ -6,40 +6,42 @@ const port = 3000;
 app.use(express.json());
 
 // Route cơ bản
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.json({
-    message: 'Hello World! This is an Express.js application.',
+    message: "Hello World! This is an Express.js application.",
     timestamp: new Date().toISOString(),
-    status: 'success'
+    status: "success",
   });
 });
 
 // Route với parameter
-app.get('/api/hello/:name', (req, res) => {
+app.get("/api/hello/:name", (req, res) => {
   const { name } = req.params;
   res.json({
     message: `Hello ${name}! Welcome to Express.js`,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 
 // Route POST example
-app.post('/api/echo', (req, res) => {
+app.post("/api/echo", (req, res) => {
   res.json({
-    message: 'Received your data',
+    message: "Received your data",
     data: req.body,
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 
 // Health check route
-app.get('/health', (req, res) => {
+app.get("/health", (req, res) => {
   res.json({
-    status: 'healthy',
+    status: "healthy",
     uptime: process.uptime(),
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
+
+console.log("test jenkins connect to github by Jenkinsfile");
 
 app.listen(port, () => {
   console.log(`Express server running at http://localhost:${port}/`);
